@@ -12,7 +12,6 @@
   >
   <a style="color:gray;" href="https://github.com/krypton-byte" target="_blank" rel="noopener noreferrer">Puja</a>
 </footer>
-
 <div id="sidebar-overlay"></div>
 </div>
 </body>

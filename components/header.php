@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"
     />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body
     class="sidebar-mini sidebar-closed sidebar-collapse"
