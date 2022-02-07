@@ -1,6 +1,20 @@
 <?php
     session_start();
-?>
+    if($_SESSION['nik'] && $_SESSION['nama']){
+        require 'Engine/csv.php';
+        try{
+            $user = new User($_SESSION['nik'], $_SESSION['nama']);
+            $user->Masuk();
+        }catch(Exception $e){
+            header('location: logout.php');
+            exit();
+        }
+    }else{
+        header('location: index.php');
+        exit();
+    }?>
+
+
 <html lang="en" style="height: auto">
   <head>
     <meta charset="utf-8" />
@@ -120,21 +134,8 @@
           </div>
         </section>
 
-<?php
-    if($_SESSION['nik'] && $_SESSION['nama']){
-        require 'Engine/csv.php';
-        try{
-            $user = new User($_SESSION['nik'], $_SESSION['nama']);
-            $user->Masuk();
-        }catch(Exception $e){
-            header('location: logout.php');
-            exit();
-        }
-    }else{
-        header('location: index.php');
-        exit();
-    }
-    include 'components/header.php';
+        
+    <?php
         if($_GET['page'] === 'tulis_catatan'){
             ?>
 
