@@ -3,10 +3,10 @@ session_start();
 require '../Engine/csv.php';
 header('content-type: application/json');
 if(!(
-    $_POST['tanggal'] && 
-    $_POST['jam'] && 
-    $_POST['lokasi'] && 
-    $_POST['suhu'] && 
+    isset($_POST['tanggal']) && 
+    isset($_POST['jam']) && 
+    isset($_POST['lokasi']) && 
+    isset($_POST['suhu']) && 
     is_numeric($_POST['suhu'])
     )){
         echo json_encode(['status' => false],JSON_PRETTY_PRINT);

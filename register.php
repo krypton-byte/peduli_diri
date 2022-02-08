@@ -21,7 +21,7 @@ session_start();
         <p class="login-box-msg"><b>Buat Akun Baru</b></p>
         <form action="" method="POST">
         <?php
-        if($_POST['nik'] && $_POST['nama_lengkap']){
+        if(isset($_POST['nik']) && isset($_POST['nama_lengkap'])){
             require 'Engine/csv.php';
             try{
                 $user = new User($_POST['nik'], $_POST['nama_lengkap']);

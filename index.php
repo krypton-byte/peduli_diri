@@ -28,7 +28,7 @@ session_start();
         if(isset($_SESSION['nik']) && isset($_SESSION['nama'])){
             header('location: user.php');
         }
-        if($_POST['nik'] && $_POST['nama_lengkap']){
+        if(isset($_POST['nik']) && isset($_POST['nama_lengkap'])){
             require 'Engine/csv.php';
             try{
                 $user = new User($_POST['nik'], $_POST['nama_lengkap']);

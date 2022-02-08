@@ -127,7 +127,7 @@
               <div class="col-sm-6">
                 <h1>
                   Catatan Perjalanan
-                  <?php echo $_SESSION['nama'];?>
+                  <?php echo htmlspecialchars($_SESSION['nama']);?>
                 </h1>
               </div>
             </div>
@@ -136,7 +136,7 @@
 
         
     <?php
-        if($_GET['page'] === 'tulis_catatan'){
+        if(isset($_GET['page']) && $_GET['page'] === 'tulis_catatan'){
             ?>
 
             <section class="content">
@@ -209,7 +209,7 @@
             })()
         </script>
         <?php
-    } else if($_GET['page'] === 'riwayat_perjalanan'){
+    } else if(isset($_GET['page']) && $_GET['page'] === 'riwayat_perjalanan'){
 
         ?>
 
