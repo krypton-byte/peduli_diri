@@ -311,7 +311,7 @@
     <b>UKK RPL 2022</b> Aplikasi Peduli Diri
   </div>
   <strong
-    >Copyright © 2022
+    >Copyright © <?php echo date('Y')?>
     <a href="https://rpl.smkn1panyingkiran.sch.id"
       >RPL SMKN 1 Panyingkiran</a
     >.</strong
