@@ -24,6 +24,7 @@
       rel="stylesheet"
       href="assets/plugins/fontawesome-free/css/all.min.css"
     />
+    <link rel="icon" href="assets/img/favicon.png" sizes="16x16" type="image/png">
     <link rel="stylesheet" href="assets/dist/css/adminlte.min.css" />
     <link
       rel="stylesheet"

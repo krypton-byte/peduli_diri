@@ -5,6 +5,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UKK RPL 2022 | Aplikasi Peduli Diri</title>
+  <link rel="icon" href="assets/img/favicon.png" sizes="16x16" type="image/png">
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="assets/dist/css/adminlte.css">
 </head>
