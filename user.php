@@ -51,21 +51,20 @@
       </nav>
 
       <!-- Sidebar -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside class="main-sidebar sidebar-light-primary elevation-4">
         <a href="#" class="brand-link">
           <img
             src="assets/img/logo.png"
             alt="Peduli Diri"
-            class="brand-image img-circle"
+            class="brand-image"
           />
           <span class="brand-text font-weight-light">Aplikasi Peduli Diri</span>
         </a>
-
         <div class="sidebar">
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img
-                src="assets/img/user.png"
+                src="assets/img/user.jpg"
                 class="img-circle"
                 alt="User Image"
               />
@@ -86,25 +85,25 @@
             >
               <li class="nav-item">
                 <a href="user.php" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-solid fa-house-user"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="?page=tulis_catatan" class="nav-link">
-                  <i class="nav-icon fas fa-pencil-alt"></i>
+                <i class="nav-icon fas fa-solid fa-pen"></i>
                   <p>Tulis Catatan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="?page=riwayat_perjalanan" class="nav-link">
-                  <i class="nav-icon fa fa-clone"></i>
+                  <i class="nav-icon fa fa-book"></i>
                   <p>Riwayat Perjalanan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="logout.php" class="nav-link">
-                  <i class="nav-icon fas fa-power-off"></i>
+                <i class="nav-icon fas fa-solid fa-door-closed"></i>
                   <p>Keluar</p>
                 </a>
               </li>
@@ -140,7 +139,7 @@
             ?>
 
             <section class="content">
-            <div class="card card-info">
+            <div class="card card-primary">
         <div class="card-header">
         <h3 class="card-title">Tulis Catatan</h3>
         </div>
@@ -172,8 +171,8 @@
             </div>
             </div>
             <div class="card-footer">
-            <button id="submit" class="btn btn-info float-right m-2"><i class="fa fa-save"></i> Simpan</button>
-            <button type="reset" id="reset" class="btn btn-warning float-right m-2"><i class="fa fa-trash"></i> Kosongkan</button>
+            <button id="submit" class="btn btn-primary float-right m-2"><i class="fa fa-save"></i> Simpan</button>
+            <button type="reset" id="reset" class="btn btn-danger float-right m-2"><i class="fa fa-trash"></i> Kosongkan</button>
             </div>
         </div>
         </div>
@@ -214,7 +213,7 @@
         ?>
 
       <section class="content">
-        <div class="card card-info">
+        <div class="card card-primary">
             <!-- /.card-header -->
             <div class="card-header">
                 <h3 class="card-title">Riwayat Perjalanan</h3>
@@ -278,7 +277,7 @@
                     
           <div class="row">
             <div class="col-6">
-              <div class="small-box bg-info">
+              <div class="small-box bg-primary">
                 <div class="inner">
                   <h3><?php echo $user->catatan()?></h3>
                   <p>Total Catatan</p>
@@ -289,7 +288,7 @@
               </div>
             </div>
             <div class="col-6">
-              <div class="small-box bg-success">
+              <div class="small-box bg-warning">
                 <div class="inner">
                   <h3><?php echo $user->user()?></h3>
                   <p>Total Pengguna</p>
