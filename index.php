@@ -12,14 +12,12 @@ session_start();
 <body class="login-page" style="min-height: 481.391px;">
   <div class="login-box">
     <div class="login-logo">
-      <a href="#">
         <img src="assets/img/logo.png" width="100px">
         <h1>Aplikasi Peduli Diri</h1>
-      </a>
     </div>
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg"><b>Login Aplikasi</b></p>
+        <p class="login-box-msg"><b style="color: black;">Login Aplikasi</b></p>
         <form action="" method="post">
         <?php
         if(isset($_SESSION['pesan'])){
@@ -64,7 +62,7 @@ session_start();
             </div>
           </div>
           <div>
-            <a href="register.php">Belum Punya Akun? Klik disini!</a>
+            <a href="register.php" class="text-dark">Belum Punya Akun? Klik disini!</a>
           </div>
         </form>
         <br>
@@ -85,11 +83,17 @@ session_start();
         background-size: cover;
     }
     .card-body, .card {
-        background: rgba(0, 0, 0, 0);
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
     }
-    h1, center, p {
+    span {
+      color: black;
+    }
+    h1 {
         color: white;
+    }
+    center{
+      color:black;
     }
     .alert {
         opacity: 70%;

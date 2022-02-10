@@ -19,7 +19,7 @@ session_start();
     </div>
     <div class="card">
       <div class="card-body login-card-body bg-transparent opacity-3">
-        <p class="login-box-msg"><b>Buat Akun Baru</b></p>
+        <p class="login-box-msg"><b style="color:black;">Buat Akun Baru</b></p>
         <form action="" method="POST">
         <?php
         if(isset($_POST['nik']) && isset($_POST['nama_lengkap'])){
@@ -59,7 +59,7 @@ session_start();
             </div>
           </div>
           <div>
-            <a href="index.php">Sudah Punya Akun? Klik disini!</a>
+            <a href="index.php" class="text-dark">Sudah Punya Akun? Klik disini!</a>
           </div>
         </form>
         <br>
@@ -80,14 +80,20 @@ session_start();
         background-size: cover;
     }
     .card-body, .card {
-        background: rgba(0, 0, 0, 0);
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
+    }
+    span {
+      color: black;
+    }
+    h1 {
+        color: white;
+    }
+    center{
+      color:black;
     }
     .alert {
         opacity: 70%;
-    }
-    h1,center, p {
-        color: white;
     }
 </style>
 </body></html>

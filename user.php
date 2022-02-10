@@ -236,14 +236,13 @@
                     foreach($user->lihat_catatan() as $catatan){
                         echo "
                         <tr>
-                        <td>".$count."</td>
+                        <td>".$count++."</td>
                         <td>".htmlspecialchars($catatan["tanggal"])."</td>
                         <td>".htmlspecialchars($catatan["jam"])."</td>
                         <td>".htmlspecialchars($catatan["lokasi"])."</td>
                         <td>".htmlspecialchars($catatan["suhu"])." Celcius</td>
                         </tr>
                         ";
-                        $count++;
                     }
                     ?>
 
@@ -252,6 +251,12 @@
             </div>
         </div>
       </section>
+      <style>
+        th {
+          background-color: #0275d8;
+          color: white;
+        }
+      </style>
       <script>
     (function(){
         $("#table-data").DataTable({
