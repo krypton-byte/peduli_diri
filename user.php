@@ -25,6 +25,7 @@
   <title>UKK RPL 2022 | Aplikasi Peduli Diri</title>
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="icon" href="assets/img/favicon.png" sizes="16x16" type="image/png">
   <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
