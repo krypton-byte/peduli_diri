@@ -107,11 +107,17 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Catatan Perjalanan <?php $_SESSION['nama_lengkap'] ?></h1>
+              <h1>Catatan Perjalanan <?php $_SESSION['nama'] ?></h1>
             </div>
           </div>
         </div>
       </section>
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/dist/js/adminlte.min.js"></script>
+  <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
       <section class="content">
 
@@ -151,17 +157,7 @@
 
   </div>
 
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
-  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/dist/js/adminlte.min.js"></script>
-  <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script>
-    $(function () {
-      $("#table-data").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-      }).buttons().container().appendTo('#table-data_wrapper .col-md-6:eq(0)');
-    });
-  </script>
+
+
 </body>
 </html>
