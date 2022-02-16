@@ -9,7 +9,7 @@ session_start();
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="assets/dist/css/adminlte.css">
 </head>
-<body class="login-page" style="min-height: 481.391px;">
+<body class="login-page">
   <div class="login-box">
     <div class="login-logo">
       <a href="#">

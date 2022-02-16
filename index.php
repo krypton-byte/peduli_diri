@@ -9,7 +9,7 @@ session_start();
   <link rel="stylesheet" href="assets/dist/css/adminlte.css">
   <link rel="icon" href="assets/img/favicon.png" sizes="16x16" type="image/png">
 </head>
-<body class="login-page" style="min-height: 481.391px;">
+<body class="login-page">
   <div class="login-box">
     <div class="login-logo">
         <img src="assets/img/logo.png" width="100px">
