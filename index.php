@@ -24,15 +24,15 @@ session_start();
             echo '<div class="alert alert-info" role="alert">'.$_SESSION['pesan'].'</div>';
             unset($_SESSION['pesan']);
         }
-        if(isset($_SESSION['nik']) && isset($_SESSION['nama'])){
+        if(isset($_SESSION['nis']) && isset($_SESSION['nama'])){
             header('location: user.php');
         }
-        if(isset($_POST['nik']) && isset($_POST['nama_lengkap'])){
+        if(isset($_POST['nis']) && isset($_POST['nama_lengkap'])){
             require 'Engine/csv.php';
             try{
-                $user = new User($_POST['nik'], $_POST['nama_lengkap']);
+                $user = new User($_POST['nis'], $_POST['nama_lengkap']);
                 $user->Masuk();
-                $_SESSION['nik'] = $_POST['nik'];
+                $_SESSION['nis'] = $_POST['nis'];
                 $_SESSION['nama'] = $_POST['nama_lengkap'];
                 header('location: user.php');
             }catch(Exception $e){
@@ -41,7 +41,7 @@ session_start();
         }
         ?>
           <div class="input-group mb-3">
-            <input type="number" name="nik" class="form-control" placeholder="Masukkan NIK" required="">
+            <input type="number" name="nis" class="form-control" placeholder="Masukkan NIS" required="">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-address-card"></span>

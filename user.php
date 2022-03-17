@@ -1,9 +1,9 @@
 <?php
     session_start();
-    if($_SESSION['nik'] && $_SESSION['nama']){
+    if($_SESSION['nis'] && $_SESSION['nama']){
         require 'Engine/csv.php';
         try{
-            $user = new User($_SESSION['nik'], $_SESSION['nama']);
+            $user = new User($_SESSION['nis'], $_SESSION['nama']);
             $user->Masuk();
         }catch(Exception $e){
             header('location: logout.php');
@@ -115,8 +115,6 @@
   <script src="assets/plugins/jquery/jquery.min.js"></script>
   <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/dist/js/adminlte.min.js"></script>
-  <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
       <section class="content">

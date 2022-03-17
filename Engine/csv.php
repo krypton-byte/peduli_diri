@@ -6,7 +6,7 @@ class Catatan {
     public function buat_catatan(string $tanggal, string $jam, string $lokasi, int $suhu): array{
         $this->Masuk();
         $file = fopen($this->filename, 'a');
-        fputcsv($file, [$this->nik, $tanggal, $jam, $lokasi, $suhu]);
+        fputcsv($file, [$this->nis, $tanggal, $jam, $lokasi, $suhu]);
         return [
             'tanggal' => $tanggal,
             'jam' => $jam,
@@ -23,9 +23,9 @@ class Catatan {
                 if($num !== 5){
                     continue;
                 }
-                if($this->nik === $data[0]){
+                if($this->nis === $data[0]){
                     $data = [
-                        'nik' => $data[0],
+                        'nis' => $data[0],
                         'tanggal' => $data[1],
                         'jam' => $data[2],
                         'lokasi' => $data[3],
@@ -35,10 +35,66 @@ class Catatan {
                 }
             }
             fclose($handle);
-            return array_slice(array_reverse($rows), $OFFSET, $LIMIT);
+            return array_slice($rows, $OFFSET, $LIMIT);
         }
         throw new Exception('File CSV Tidak Ditemukan');
     }
+
+    public function Hapus(int $index): bool {
+        $status = false;
+        if(($handle = fopen($this->filename, 'r')) !== FALSE){
+            $n = 0;
+            $narray = array();
+            while($data = fgetcsv($handle)){
+                if($data[0] === $this->nis && $n === $index){
+                    $status = true;
+                    $n++;
+                }elseif($this->nis === $data[0]){
+                    array_push($narray, $data);
+                    $n++;
+                }else{
+                    array_push($narray, $data);
+                }
+            }
+            $flush = fopen($this->filename, 'w');
+            fwrite($flush, '');
+            fclose($flush);
+            $file = fopen($this->filename, 'a');
+            foreach($narray as $val){
+                fputcsv($file, $val);
+            }
+            fclose($file);
+        }
+        return $status;
+    }
+
+    public function Edit(int $index, string $tanggal, string $jam, string $lokasi, int $suhu): bool {
+        $status = false;
+        if(($handle = fopen($this->filename, 'r')) !== FALSE){
+            $n = 0;
+            $narray = array();
+            while($data = fgetcsv($handle)){
+                if($data[0] === $this->nis && $n === $index){
+                    array_push($narray,[$this->nis, $tanggal, $jam, $lokasi, $suhu]);
+                    $n++;
+                    $status = true;
+                }elseif($this->nis === $data[0]){
+                    array_push($narray, $data);
+                    $n++;
+                }else{
+                    array_push($narray, $data);
+                }
+            }
+            $flush = fopen($this->filename, 'w');
+            fwrite($flush, '');
+            $file = fopen($this->filename, 'a');
+            foreach($narray as $val){
+                fputcsv($file, $val);
+            }
+        }
+        return $status;
+    }
+
     public function catatan(): int {
         return count(file($this->filename));
     }
@@ -46,11 +102,11 @@ class Catatan {
 
 class User extends Catatan { //NIK|Nama
     private string $filename = __DIR__.'/user.csv';
-    public string $nik;
+    public string $nis;
     public string $nama;
-    public function __construct(string $NIK, string $Nama) 
+    public function __construct(string $NIS, string $Nama) 
     {
-        $this->nik = $NIK;
+      $this->nis = $NIS;
         $this->nama = $Nama;
     }
 
@@ -62,15 +118,15 @@ class User extends Catatan { //NIK|Nama
                 if($num !== 2){
                     continue;
                 }
-                if($this->nama === $data[1] && $this->nik === $data[0]){
+                if($this->nama === $data[1] && $this->nis === $data[0]){
                     return [
-                        'nik' => $data[0],
+                        'nis' => $data[0],
                         'nama' => $data[1]
                     ];
                 }
             }
             fclose($handle);
-        throw new Exception('NIK Atau Nama Lengkap Salah');
+        throw new Exception('NIS Atau Nama Lengkap Salah');
         }
         throw new Exception('File CSV Tidak Ditemukan');
     }
@@ -81,22 +137,22 @@ class User extends Catatan { //NIK|Nama
     }
     public function Daftar(): array
     {
-        if(!(is_numeric($this->nik) && strlen($this->nik) === 16)) throw new Exception('NIK Tidak Valid');
+        if(!(is_numeric($this->nis) && strlen($this->nis) === 10)) throw new Exception('NIS Tidak Valid');
         if (($handle = fopen($this->filename, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle)) !== FALSE) {
                 $num = count($data);
                 if($num !== 2){
                     continue;
                 }
-                if($this->nik === $data[0]){
-                    throw new Exception('NIK telah terdaftar');
+                if($this->nis === $data[0]){
+                    throw new Exception('NIS telah terdaftar');
                 }
             }
             $fcsv = fopen($this->filename, 'a');
-            fputcsv($fcsv, [$this->nik, $this->nama]);
+            fputcsv($fcsv, [$this->nis, $this->nama]);
             fclose($fcsv);
             fclose($handle);
-            return ['nik' => $this->nik, 'nama' => $this->nama];
+            return ['nis' => $this->nis, 'nama' => $this->nama];
         }
         throw new Exception('File CSV Tidak Ditemukan');
     }
