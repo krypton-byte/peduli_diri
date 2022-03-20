@@ -100,7 +100,7 @@ class Catatan {
     }
 }
 
-class User extends Catatan { //NIK|Nama
+class User extends Catatan { 
     private string $filename = __DIR__.'/user.csv';
     public string $nis;
     public string $nama;
@@ -155,6 +155,27 @@ class User extends Catatan { //NIK|Nama
             return ['nis' => $this->nis, 'nama' => $this->nama];
         }
         throw new Exception('File CSV Tidak Ditemukan');
+    }
+
+    public function getProfile(): string {
+        $path = glob(dirname(__DIR__)."/profile".'/'.$this->nis.'.*');
+        return $path?'profile/'.array_slice(explode('/', $path[0]), -1)[0]:'assets/img/user.jpg';
+    }
+
+    public function setProfile(string $path): bool{
+        try{
+            if(!getimagesize($path)){
+                throw new Exception("Dennied");
+            }
+            $dest = dirname(__DIR__, 1)."/profile".'/'.$this->nis.'.'.microtime(true).'.'.explode('/', getimagesize($path)['mime'])[1];
+            if($this->getProfile() !== 'assets/img/user.jpg'){
+                unlink('../'.$this->getProfile());
+            }
+            move_uploaded_file($path, $dest);
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
     }
 }
 ?>

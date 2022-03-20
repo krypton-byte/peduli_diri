@@ -62,7 +62,8 @@
                 position: 'top-end',
                 icon:status?'success':'error',
                 title: `Catatan ${status?'Berhasil':'Gagal'} Dihapus`,
-                timer:1500
+                timer:1500,
+                showConfirmButton: false
             });
             status && window.location.reload();
         })

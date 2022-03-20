@@ -53,10 +53,12 @@
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img
-                src="assets/img/user.jpg"
+                src="<?php echo $user->getProfile()?>"
                 class="img-circle"
                 alt="User Image"
+                id="pchange"
               />
+              <input type="file" name="" id="fprofile" style="display: none;">
             </div>
             <div class="info">
               <a href="#" class="d-block"
@@ -156,6 +158,31 @@
   </div>
 
 
+<script>
+  document.getElementById('pchange').onclick = e => {
+    document.getElementById('fprofile').click();
+  }
+  document.getElementById('fprofile').onchange = e => {
+    const form = new FormData();
+    form.append('img', e.target.files[0]);
+    fetch('api/update_profile.php',{
+      method: 'POST',
+      body: form
+    }).then(async (resp)=>{
+      const js = await resp.json();
+      Swal.fire({
+        position:'top-end',
+        icon: js.status?'success':'error',
+        title: `Foto Profile ${js.status?'Berhasil':'Gagal'} Diperbarui`,
+        timer: 1500,
+        showConfirmButton: false
+      });
+      if(js.status){
+        document.getElementById('pchange').src = js.path;
+      }
 
+    })
+  }
+</script>
 </body>
 </html>
