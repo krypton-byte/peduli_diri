@@ -58,7 +58,7 @@
                 alt="User Image"
                 id="pchange"
               />
-              <input type="file" name="" id="fprofile" style="display: none;">
+              <input type="file" name="" id="fprofile" style="display: none;" accept="image/*">
             </div>
             <div class="info">
               <a href="#" class="d-block"
